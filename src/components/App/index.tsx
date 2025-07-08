@@ -1,4 +1,4 @@
-import MessagePage from '../../pages/MessagePage';
+import MessagePage from '../../pages/MessagePage/index.tsx';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './style.css';

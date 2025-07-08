@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Message from '../components/Message';
-import MessageInput from '../components/MessageInput';
-import type { IMessage } from '../types/message';
-import '../components/App/style.css';
+import Message from '../../components/Message/index.tsx';
+import MessageInput from '../../components/MessageInput/index.tsx';
+import type { IMessage } from '../../types/message.tsx';
+import './style.css';
 
 export default function MessagePage() {
   const [messages, setMessages] = useState<IMessage[]>([]);
