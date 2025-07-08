@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 import MessageInput from '../components/MessageInput';
 import type { IMessage } from '../types/message';
-import '../App.css';
+import '../components/App/style.css';
 
 export default function MessagePage() {
   const [messages, setMessages] = useState<IMessage[]>([]);

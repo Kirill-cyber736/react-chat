@@ -1,9 +1,7 @@
-import { useState, useEffect} from 'react'
-import { BrowserRouter, Router, Route, Routes, useLocation } from 'react-router-dom'
+import MessagePage from '../../pages/MessagePage';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import './App.css'
-import './pages/Home/Home.jsx'
-import MessagePage from './pages/MessagePage'
+import './style.css';
 
 //TODO in other component
 

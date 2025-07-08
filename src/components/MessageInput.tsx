@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import '../components/App/style.css';
 
 interface MessageInputProps {
   onSend: (message: string) => void;
@@ -16,15 +17,11 @@ export default function MessageInput({ onSend }: MessageInputProps) {
     }
   };
 
-  // Автофокус при загрузке
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
   return (
     <form onSubmit={handleSubmit} className="message-input-container">
       <textarea
-        ref={inputRef}
+        // ref={inputRef}
+        autoFocus
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Напишите сообщение..."
@@ -34,6 +31,8 @@ export default function MessageInput({ onSend }: MessageInputProps) {
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             handleSubmit(e);
+
+            console.log(e.key)
           }
         }}
       />
