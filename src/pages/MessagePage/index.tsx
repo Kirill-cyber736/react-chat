@@ -5,34 +5,45 @@ import MessageInput from "../../components/MessageInput/index.tsx";
 import type { IMessage } from "../../types/message.tsx";
 import "./style.css";
 
+function getRandomId() {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2).toString();
+}
+
 export default function MessagePage() {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [ws, setWs] = useState<WebSocket | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  const username = localStorage.getItem("nickName");
+
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3001");
 
     socket.onopen = () => {
       console.log("Connected to ws");
-
-      socket.send(JSON.stringify({ type: "init", username: localStorage.getItem("nickName") }));
+      
+      socket.send(JSON.stringify({ type: "init", username, id: getRandomId()}));
     };
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
 
       console.log("MESSAGE FROM SERVER: ", data);
-      if (data.type === "msg") {
+      if (data.type === "msg" ) {
         const newMessage: IMessage = {
           id: Date.now().toString(),
           text: data.text,
-          time: new Date(data.timestamp).toLocaleTimeString(),
-          isMine: data.username === "User",
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit"
+          }),
+          isMine: data.username === localStorage.getItem("nickName"),
           sender: data.username,
         };
-        setMessages((prev) => [...prev, newMessage]);
+        if(localStorage.getItem("nickName") !== data.username){
+          setMessages((prev) => [...prev, newMessage]);
+        } 
       }
     };
 
@@ -55,7 +66,7 @@ export default function MessagePage() {
     setMessages([...messages, newMessage]);
 
     if (ws && ws.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: "msg", text }));
+      ws.send(JSON.stringify({ type: "msg", text, sender: username }));
       console.log("Закинул жи есть");
     }
   };
