@@ -17,6 +17,7 @@ export default function MessagePage() {
       isMine: true,
     };
     setMessages([...messages, newMessage]);
+    console.log("СООБЩЕНИЕ ОТПРАВЛЕНО!!!");
   };
 
   // Автопрокрутка при новых сообщениях
