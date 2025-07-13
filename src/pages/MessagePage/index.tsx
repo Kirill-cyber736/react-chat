@@ -17,7 +17,7 @@ export default function MessagePage() {
     socket.onopen = () => {
       console.log("Connected to ws");
 
-      socket.send(JSON.stringify({ type: "init", username: "User" }));
+      socket.send(JSON.stringify({ type: "init", username: localStorage.getItem("nickName") }));
     };
 
     socket.onmessage = (event) => {
@@ -85,3 +85,4 @@ export default function MessagePage() {
     </div>
   );
 }
+
