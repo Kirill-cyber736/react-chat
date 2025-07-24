@@ -20,16 +20,12 @@ export default function MessagePage() {
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3001");
 
-    socket.onopen = () => {
-      console.log("Connected to ws");
-      
+    socket.onopen = () => { 
       socket.send(JSON.stringify({ type: "init", username, id: getRandomId()}));
     };
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-
-      console.log("MESSAGE FROM SERVER: ", data);
       if (data.type === "msg" ) {
         const newMessage: IMessage = {
           id: Date.now().toString(),
@@ -67,7 +63,6 @@ export default function MessagePage() {
 
     if (ws && ws.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify({ type: "msg", text, sender: username }));
-      console.log("Закинул жи есть");
     }
   };
 
