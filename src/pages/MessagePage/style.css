@@ -4,6 +4,7 @@
   height: 100vh;
   background-color: #dfdfdf; /* Светлый фон всего чата */
   width: 100vw;
+  overflow: hidden;
 }
 
 .chat-header {

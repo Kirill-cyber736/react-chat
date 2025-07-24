@@ -1,47 +1,66 @@
-import { useState } from 'react';
-import './style.css';
+import { useState } from "react";
+import "./style.css";
 
 interface MessageInputProps {
-  onSend: (message: string) => void;
+    onSend: (message: string) => void;
 }
 
 export default function MessageInput({ onSend }: MessageInputProps) {
-  const [message, setMessage] = useState('');
+    const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (message.trim()) {
-      onSend(message);
-      setMessage('');
-    }
-  };
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (message.trim()) {
+            onSend(message);
+            setMessage("");
+        }
+    };
 
-  return (
-    <form onSubmit={handleSubmit} className="message-input-container">
-      <textarea
-        // ref={inputRef}
-        autoFocus
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Напишите сообщение..."
-        className="message-input"
-        rows={1}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            handleSubmit(e);
+    const consolchik = (()=>{
+      console.log("НАЖАЛОСЬ БЛЯТЬ")
+    });
 
-            console.log(e.key)
-          }
-        }}
-      />
-      <button 
-        type="submit" 
-        className="send-button"
-        disabled={!message.trim()}
-      >
-        GO
-      </button>
-    </form>
-  );
+    return (
+        <form onSubmit={handleSubmit} className="message-input-container">
+            <button className="paperclip-button">
+                <img
+                    src="src/assets/icons/paperclip-icon.svg"
+                    className="paperclip-image"
+                ></img>
+            </button>
+
+            <div className="input-with-stickers">
+                <textarea
+                    autoFocus
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Message"
+                    className="message-input"
+                    rows={1}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            handleSubmit(e);
+                        }
+                    }}
+                />
+
+                <button className="stickers-button" onClick={()=>consolchik()}>
+                    <img
+                        src="src/assets/icons/stickers-icon.svg"
+                        alt="stickers"
+                        className="stickers-image"
+                    />
+                </button>
+            </div>
+
+            <button
+                type="submit"
+                className="send-button"
+                disabled={!message.trim()}
+            >
+                GO
+            </button>
+        </form>
+    );
 }
