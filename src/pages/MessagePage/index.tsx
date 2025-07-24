@@ -11,6 +11,7 @@ function getRandomId() {
 
 export default function MessagePage() {
   const [messages, setMessages] = useState<IMessage[]>([]);
+  
   const [ws, setWs] = useState<WebSocket | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
