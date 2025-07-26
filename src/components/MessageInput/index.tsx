@@ -17,7 +17,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
     };
 
     const consolchik = (()=>{
-      console.log("НАЖАЛОСЬ БЛЯТЬ")
+      console.log("Выберите стикер")
     });
 
     return (
@@ -45,7 +45,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                     }}
                 />
 
-                <button className="stickers-button" onClick={()=>consolchik()}>
+                <button className="stickers-button" onClick={(e)=>{e.preventDefault(); consolchik()}}>
                     <img
                         src="src/assets/icons/stickers-icon.svg"
                         alt="stickers"
