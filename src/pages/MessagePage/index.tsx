@@ -68,7 +68,6 @@ export default function MessagePage() {
 
     if (ws && ws.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify({ type: "msg", text, sender: username }));
-      console.log("Закинул жи есть");
     }
   };
 
@@ -81,9 +80,10 @@ export default function MessagePage() {
     <div className="chat-page">
       <header className="chat-header">
         <Link to="/" className="chat-back-button">
-          ← Назад
+          ← Chats
         </Link>
-        <div className="chat-title">Мой чат</div>
+        {/*<div className="chat-title"></div>        как сюда впендюрить имя пользователя?*/}
+        <img src='src/assets/icons/user-icon.svg' className="user-icon" />
       </header>
 
       <div className="messages-container">

@@ -3,14 +3,14 @@
   padding: 12px 16px;
   border-radius: 18px;
   position: relative; 
-  color: #000000;
+  color: #ffffff;
 }
 
 .sender {
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 4px;
-  color: #333;
+  color: white;
 }
 
 .message-text {
@@ -20,14 +20,14 @@
 
 .message-time {
   font-size: 12px;
-  color: #666;
+  color: #8E8E93;
   text-align: right;
   margin-top: 4px;
 }
 
 /* Ваши сообщения (справа) */
 .message.mine {
-  background: #dcf8c6;
+  background: #313131;
   align-self: flex-end;
   max-width: 70%;
   border-radius: 18px 18px 0 18px;
@@ -36,7 +36,7 @@
 
 /* Чужие сообщения (слева) */
 .message.other {
-  background: #ffffff;
+  background: #262628;
   align-self: flex-start; /* Прижимаем к левому краю */
   max-width: 70%;
   border-radius: 18px 18px 18px 0; /* Скругление слева */

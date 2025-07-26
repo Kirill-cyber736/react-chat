@@ -16,13 +16,18 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         }
     };
 
-    const consolchik = (()=>{
-      console.log("Выберите стикер")
+    const consolForStickers = (()=>{
+      console.log("Выберите стикер");
     });
+
+    const consolForPaperClip = (()=>{
+        console.log("Выберите файлы");
+    })
+
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <button className="paperclip-button">
+            <button className="paperclip-button" onClick={(e)=>{e.preventDefault(); consolForPaperClip()}}>
                 <img
                     src="src/assets/icons/paperclip-icon.svg"
                     className="paperclip-image"
@@ -45,7 +50,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                     }}
                 />
 
-                <button className="stickers-button" onClick={(e)=>{e.preventDefault(); consolchik()}}>
+                <button className="stickers-button" onClick={(e)=>{e.preventDefault(); consolForStickers()}}>
                     <img
                         src="src/assets/icons/stickers-icon.svg"
                         alt="stickers"
@@ -59,7 +64,10 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                 className="send-button"
                 disabled={!message.trim()}
             >
-                GO
+                <img  src={ 
+                    message.trim() ? "src/assets/icons/micro-icon-active.svg"  
+                    : "src/assets/icons/micro-icon-disabled.svg" 
+                }/>
             </button>
         </form>
     );

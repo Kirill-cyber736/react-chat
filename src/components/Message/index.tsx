@@ -12,7 +12,7 @@ export default function Message({ message }: MessageProps) {
         <div className="sender">{message.sender}</div>
       )}
       <div className="message-text">{message.text}</div>
-      <div className="message-time">{message.time}</div>
+      <div className="message-time">{message.time} <img src = "src/assets/icons/read-icon.svg"></img> </div>
     </div>
   );
 }
