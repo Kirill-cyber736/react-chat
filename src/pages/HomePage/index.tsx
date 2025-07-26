@@ -1,7 +1,8 @@
 import { type ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavigationButton from "../../components/NavigationButton";
-import './style.css'
+import WelcomeBlock from "../../components/NavigationButton";
+import "./style.css";
+import IntroSlides from "../../components/IntroSlides";
 
 const HomePage = (): ReactElement => {
   const navigate = useNavigate();
@@ -15,10 +16,8 @@ const HomePage = (): ReactElement => {
 
   return (
     <div className="home-page">
-      <header className="home-header">
-        <div className="home-title">Добрый чат</div>
-      </header>
-      <NavigationButton />
+      <IntroSlides />
+      <WelcomeBlock />
     </div>
   );
 };

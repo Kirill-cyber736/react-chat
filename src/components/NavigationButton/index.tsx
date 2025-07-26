@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
-export default function NavigationButton() {
+export default function WelcomeBlock() {
   return (
-    <div className="center-container">
-      <Link to="/chat" className="center-link">
-        Перейти в чат
-      </Link>
+    <div>
+      <div className="welcome-block">
+        <Link to="/chat" className="center-link">
+          <img
+            src="src/assets/icons/logo.svg"
+            height="150"
+            style={{
+              overflow: "hidden"
+            }}></img>
+        </Link>
+      </div>
+      <text className="text-style">Telegram 2</text>
     </div>
+    
   );
 }
