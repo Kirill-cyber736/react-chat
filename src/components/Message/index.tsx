@@ -1,4 +1,5 @@
-import type { IMessage } from '../types/message';
+import type { IMessage } from '../../types/message.tsx';
+import "./style.css"
 
 interface MessageProps {
   message: IMessage;

@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import '../components/App/style.css';
+import { useState } from 'react';
+import './style.css';
 
 interface MessageInputProps {
   onSend: (message: string) => void;
@@ -7,7 +7,6 @@ interface MessageInputProps {
 
 export default function MessageInput({ onSend }: MessageInputProps) {
   const [message, setMessage] = useState('');
-  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,37 +1,21 @@
-import MessagePage from '../../pages/MessagePage';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import './style.css';
+import HomePage from "../../pages/HomePage/index.tsx";
+import MessagePage from "../../pages/MessagePage/index.tsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./style.css";
+import RegistrationPage from "../../pages/RegistrationPage/index.tsx";
 
-//TODO in other component
-
-function NavigationButton() {
-  const location = useLocation();
-
-  if(location.pathname !== '/') {
-    return null;
-  }
-
+function App() {
   return (
-    <div className='center-container'>
-      <Link to="/chat" className='center-link'>
-        Перейти в чат
-      </Link>
+    <div className="body">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/chat" element={<MessagePage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
-function App() {
-  return (
-    <BrowserRouter>
-
-      <NavigationButton />
-
-      <Routes>
-        <Route path="/chat" element={<MessagePage />} />
-      </Routes>
-    </BrowserRouter>
-  )
-}
-
-export default App
+export default App;
