@@ -1,3 +1,5 @@
+import sendingButton from "@assets/icons/sending-button-icon.svg";
+import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
 import { useState } from "react";
 import "./style.css";
 
@@ -16,18 +18,23 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         }
     };
 
-    const consolForStickers = (()=>{
-      console.log("Выберите стикер");
-    });
+    const consolForStickers = () => {
+        console.log("Выберите стикер");
+    };
 
-    const consolForPaperClip = (()=>{
+    const consolForPaperClip = () => {
         console.log("Выберите файлы");
-    })
-
+    };
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <button className="paperclip-button" onClick={(e)=>{e.preventDefault(); consolForPaperClip()}}>
+            <button
+                className="paperclip-button"
+                onClick={(e) => {
+                    e.preventDefault();
+                    consolForPaperClip();
+                }}
+            >
                 <img
                     src="src/assets/icons/paperclip-icon.svg"
                     className="paperclip-image"
@@ -42,6 +49,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                     placeholder="Message"
                     className="message-input"
                     rows={1}
+                    cols={40}
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                             e.preventDefault();
@@ -50,7 +58,13 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                     }}
                 />
 
-                <button className="stickers-button" onClick={(e)=>{e.preventDefault(); consolForStickers()}}>
+                <button
+                    className="stickers-button"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        consolForStickers();
+                    }}
+                >
                     <img
                         src="src/assets/icons/stickers-icon.svg"
                         alt="stickers"
@@ -64,10 +78,13 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                 className="send-button"
                 disabled={!message.trim()}
             >
-                <img  src={ 
-                    message.trim() ? "src/assets/icons/micro-icon-active.svg"  
-                    : "src/assets/icons/micro-icon-disabled.svg" 
-                }/>
+                <img
+                    src={
+                        message.trim()
+                            ? sendingButton
+                            : microIconIconSrc
+                    }
+                />
             </button>
         </form>
     );
