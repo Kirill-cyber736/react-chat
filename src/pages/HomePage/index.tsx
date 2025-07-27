@@ -1,3 +1,5 @@
+import IntroSlides from "../../components/IntroSlides";
+import WelcomeBlock from "../../components/NavigationButton";
 import { type ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavigationButton from "../../components/NavigationButton";
@@ -13,14 +15,12 @@ const HomePage = (): ReactElement => {
         }
     }, [navigate]);
 
-    return (
-        <div className="home-page">
-            <header className="home-header">
-                <div className="home-title">Добрый чат</div>
-            </header>
-            <NavigationButton />
-        </div>
-    );
+  return (
+    <div className="home-page">
+      <IntroSlides />
+      <WelcomeBlock />
+    </div>
+  );
 };
 
 export default HomePage;

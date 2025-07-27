@@ -12,6 +12,7 @@
   flex-direction: column;
   gap: 20px;
   font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Светлый фон всего чата */
 }
 
 .title {

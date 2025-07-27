@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Message from "../../components/Message/index.tsx";
 import MessageInput from "../../components/MessageInput/index.tsx";
 import type { IMessage } from "../../types/message.tsx";
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function getRandomId() {
@@ -31,7 +31,7 @@ export default function MessagePage() {
             socket.send(
                 JSON.stringify({ type: "init", username, id: getRandomId() })
             );
-        };
+        };  
 
         socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
