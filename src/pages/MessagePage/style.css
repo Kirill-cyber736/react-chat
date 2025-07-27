@@ -8,7 +8,7 @@
 }
 
 .chat-header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -24,6 +24,14 @@
 
 .chat-header .user-icon{
   margin-left: auto;
+}
+
+.chat-header .second-user-name-title{
+  position: absolute;
+  left: 45%;
+  font-size: 21px;
+  font-weight: bold;
+  
 }
 
 .chat-back-button {
@@ -68,3 +76,4 @@
 .messages-container::-webkit-scrollbar {
   display: none;
 }
+

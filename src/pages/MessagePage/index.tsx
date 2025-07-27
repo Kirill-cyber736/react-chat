@@ -9,7 +9,9 @@ function getRandomId() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2).toString();
 }
 
+
 export default function MessagePage() {
+  const [secondUser, setSecondUser] = useState<string | null>(null);
   const [messages, setMessages] = useState<IMessage[]>([]);
   
   const [ws, setWs] = useState<WebSocket | null>(null);
@@ -31,6 +33,11 @@ export default function MessagePage() {
       const data = JSON.parse(event.data);
 
       console.log("MESSAGE FROM SERVER: ", data);
+
+      if (data.type === "init" && data.username !== username) {
+        setSecondUser(data.username);
+      }
+
       if (data.type === "msg" ) {
         const newMessage: IMessage = {
           id: Date.now().toString(),
@@ -82,7 +89,9 @@ export default function MessagePage() {
         <Link to="/" className="chat-back-button">
           ← Chats
         </Link>
-        {/*<div className="chat-title"></div>        как сюда впендюрить имя пользователя?*/}
+        <div className = "second-user-name-title">
+          {secondUser ? secondUser : "now you're alone"}
+        </div>
         <img src='src/assets/icons/user-icon.svg' className="user-icon" />
       </header>
 
