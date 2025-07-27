@@ -7,14 +7,15 @@ export default function WelcomeBlock() {
       <div className="welcome-block">
         <Link to="/chat" className="center-link">
           <img
-            src="src/assets/icons/logo.svg"
-            height="150"
-            style={{
-              overflow: "hidden"
-            }}></img>
+            height={150}
+            style = {{
+              
+            }}
+            src="src/assets/icons/logo.svg">
+          </img>
         </Link>
       </div>
-      <text className="text-style">Telegram 2</text>
+      <span className="text-style">Telegram 2</span>
     </div>
     
   );

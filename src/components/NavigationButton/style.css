@@ -4,12 +4,13 @@
     top: 35%;
     left: 250px;
     user-select: none;
-    animation: pulse 5s infinite ease-in-out;
+    animation: welcomeButtonIntroPulse 5s infinite ease-in-out;
+    transition: transform .35s;
     transform-origin: center;
     transform: scale(1);
 }
 
-@keyframes pulse {
+@keyframes welcomeButtonIntroPulse {
     0%, 40% {
         transform: scale(1);
     }
@@ -27,6 +28,22 @@
     }
 }
 
+.welcome-block:hover {
+    animation: welcomeButtonHoverScale 3s infinite ease-in-out;
+}
+
+@keyframes welcomeButtonHoverScale {
+    0% {
+        transform: scale(1);
+    }
+    30%, 70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .text-style {
     position: fixed ;
     font-size: 56px;
@@ -39,8 +56,6 @@
     display: inline-block;
     padding: 10px 10px;
     font-size: 10px;
-    color: white;
-    height: 150;
     background-color: white;
     border-radius: 18px;
     text-decoration: none;
@@ -53,23 +68,4 @@
 .center-link:hover {
     color: rgba(149, 149, 149, 0.8);
     background-color: gray;
-    animation: slowePulse 5s infinite;
-}
-
-@keyframes slowePulse {
-  0% {
-    height: 150px;
-  }
-
-  20% {
-    height: 170px;
-  }
-
-  60% {
-    height: 170px;
-  }
-
-  80% {
-    height: 150px;
-  }
 }

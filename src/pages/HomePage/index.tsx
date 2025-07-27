@@ -4,6 +4,7 @@ import { type ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
+
 const HomePage = (): ReactElement => {
   const navigate = useNavigate();
 

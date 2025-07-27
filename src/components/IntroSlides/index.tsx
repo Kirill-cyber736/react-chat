@@ -3,6 +3,7 @@ import { type ReactElement } from "react";
 import "./style.css";
 
 const IntroSlides = (): ReactElement => {
+  console.log(introSlidesImagesData);
   return (
     <div className="home-page-intro-slides-wrapper">
       {introSlidesImagesData.map((image) => (
