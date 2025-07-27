@@ -2,7 +2,6 @@ import IntroSlides from "../../components/IntroSlides";
 import WelcomeBlock from "../../components/NavigationButton";
 import { type ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavigationButton from "../../components/NavigationButton";
 import "./style.css";
 
 const HomePage = (): ReactElement => {
