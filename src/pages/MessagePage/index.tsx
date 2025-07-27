@@ -13,7 +13,7 @@ function getRandomId() {
 }
 
 export default function MessagePage() {
-    const [secondUser, setSecondUser] = useState<string | null>(null);
+    const [secondUsername, setSecondUsername] = useState<string | null>(null);
     const [messages, setMessages] = useState<IMessage[]>([]);
 
     const [ws, setWs] = useState<WebSocket | null>(null);
@@ -31,18 +31,26 @@ export default function MessagePage() {
             socket.send(
                 JSON.stringify({ type: "init", username, id: getRandomId() })
             );
-        };  
+        };
 
         socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
 
             console.log("MESSAGE FROM SERVER: ", data);
 
-            if (data.type === "init" && data.username !== username) {
-                setSecondUser(data.username);
-            }
+            // if (data.type === "init" && data.username !== username) {
+            //     setSecondUser(data.username);
+            // }
 
             if (data.type === "msg") {
+                if (
+                    !secondUsername &&
+                    data.username !== localStorage.getItem("nickName")
+                ) {
+                    setSecondUsername(data.username);
+
+                    console.log("SECOND USERNAME CHANGED: ", data.username);
+                }
                 const newMessage: IMessage = {
                     id: Date.now().toString(),
                     text: data.text,
@@ -93,7 +101,7 @@ export default function MessagePage() {
                     ← Chats
                 </Link>
                 <div className="second-user-name-title">
-                    {secondUser ? secondUser : "now you're alone"}
+                    {secondUsername ? secondUsername : "now you're alone"}
                 </div>
                 <img
                     src="src/assets/icons/user-icon.svg"
