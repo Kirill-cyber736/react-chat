@@ -2,22 +2,36 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #ffffff; /* Светлый фон всего чата */
+  background-color: #202020;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .chat-header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
-  background-color: #2c3e50;
+  background-color: #1c1c1d;
   color: white;
   display: flex;
   align-items: center;
   padding: 0 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 100;
+}
+
+.chat-header .user-icon {
+  margin-left: auto;
+}
+
+.chat-header .second-user-name-title {
+  position: absolute;
+  left: 45%;
+  font-size: 21px;
+  font-weight: bold;
+
 }
 
 .chat-back-button {
@@ -25,12 +39,12 @@
   text-decoration: none;
   font-size: 18px;
   line-height: 1;
-  padding: 10px 0; /* Уменьшили боковые отступы */
-  margin-right: 20px; /* Отступ от названия */
+  padding: 10px 0;
+  margin-right: 20px;
   position: relative;
   display: inline-flex;
   align-items: center;
-  left: 0px; /* Сдвигаем влево за пределы стандартного padding */
+  left: 0px;
 }
 
 .chat-back-button:hover {
@@ -41,7 +55,7 @@
   font-size: 25px;
   flex: 1;
   text-align: center;
-  margin-left: -48px; /* Компенсируем ширину кнопки "Назад" */
+  margin-left: -48px;
 }
 
 .messages-container {
@@ -52,10 +66,10 @@
   display: flex;
   flex-direction: column;
   height: 80vh;
-  width: 192vh;
-  padding: 23px;
+  width: 100%;
+  padding: 20px;
   gap: 15px;
-  margin-top: 60px; /* Отступ под шапку */
+  margin-top: 60px;
   margin-bottom: 60px;
 }
 
