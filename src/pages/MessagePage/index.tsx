@@ -6,104 +6,109 @@ import type { IMessage } from "../../types/message.tsx";
 import "./style.css";
 
 function getRandomId() {
-  return Date.now().toString(36) + Math.random().toString(36).substring(2).toString();
+    return (
+        Date.now().toString(36) +
+        Math.random().toString(36).substring(2).toString()
+    );
 }
-
 
 export default function MessagePage() {
-  const [secondUser, setSecondUser] = useState<string | null>(null);
-  const [messages, setMessages] = useState<IMessage[]>([]);
-  
-  const [ws, setWs] = useState<WebSocket | null>(null);
+    const [secondUser, setSecondUser] = useState<string | null>(null);
+    const [messages, setMessages] = useState<IMessage[]>([]);
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+    const [ws, setWs] = useState<WebSocket | null>(null);
 
-  const username = localStorage.getItem("nickName");
+    const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const socket = new WebSocket("ws://localhost:3001");
+    const username = localStorage.getItem("nickName");
 
-    socket.onopen = () => {
-      console.log("Connected to ws");
-      
-      socket.send(JSON.stringify({ type: "init", username, id: getRandomId()}));
-    };
+    useEffect(() => {
+        const socket = new WebSocket("ws://localhost:3001");
 
-    socket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
+        socket.onopen = () => {
+            console.log("Connected to ws");
 
-      console.log("MESSAGE FROM SERVER: ", data);
-
-      if (data.type === "init" && data.username !== username) {
-        setSecondUser(data.username);
-      }
-
-      if (data.type === "msg" ) {
-        const newMessage: IMessage = {
-          id: Date.now().toString(),
-          text: data.text,
-          time: new Date().toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit"
-          }),
-          isMine: data.username === localStorage.getItem("nickName"),
-          sender: data.username,
+            socket.send(
+                JSON.stringify({ type: "init", username, id: getRandomId() })
+            );
         };
-        if(localStorage.getItem("nickName") !== data.username){
-          setMessages((prev) => [...prev, newMessage]);
-        } 
-      }
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+
+            console.log("MESSAGE FROM SERVER: ", data);
+
+            if (data.type === "init" && data.username !== username) {
+                setSecondUser(data.username);
+            }
+
+            if (data.type === "msg") {
+                const newMessage: IMessage = {
+                    id: Date.now().toString(),
+                    text: data.text,
+                    time: new Date().toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    }),
+                    isMine: data.username === localStorage.getItem("nickName"),
+                    sender: data.username,
+                };
+                if (localStorage.getItem("nickName") !== data.username) {
+                    setMessages((prev) => [...prev, newMessage]);
+                }
+            }
+        };
+
+        setWs(socket);
+
+        return;
+    }, []);
+
+    const handleSendMessage = (text: string) => {
+        const newMessage: IMessage = {
+            id: Date.now().toString(),
+            text,
+            time: new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+            }),
+            isMine: true,
+        };
+
+        setMessages([...messages, newMessage]);
+
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ type: "msg", text, sender: username }));
+        }
     };
 
-    setWs(socket);
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
 
-    return;
-  }, []);
+    return (
+        <div className="chat-page">
+            <header className="chat-header">
+                <Link to="/" className="chat-back-button">
+                    ← Chats
+                </Link>
+                <div className="second-user-name-title">
+                    {secondUser ? secondUser : "now you're alone"}
+                </div>
+                <img
+                    src="src/assets/icons/user-icon.svg"
+                    className="user-icon"
+                />
+            </header>
 
-  const handleSendMessage = (text: string) => {
-    const newMessage: IMessage = {
-      id: Date.now().toString(),
-      text,
-      time: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      isMine: true,
-    };
+            <div className="messages-container">
+                {messages.map((msg) => (
+                    <Message key={msg.id} message={msg} />
+                ))}
+                <div ref={messagesEndRef} />
+            </div>
 
-    setMessages([...messages, newMessage]);
-
-    if (ws && ws.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: "msg", text, sender: username }));
-    }
-  };
-
-  // Автопрокрутка при новых сообщениях
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  return (
-    <div className="chat-page">
-      <header className="chat-header">
-        <Link to="/" className="chat-back-button">
-          ← Chats
-        </Link>
-        <div className = "second-user-name-title">
-          {secondUser ? secondUser : "now you're alone"}
+            <MessageInput onSend={handleSendMessage} />
         </div>
-        <img src='src/assets/icons/user-icon.svg' className="user-icon" />
-      </header>
-
-      <div className="messages-container">
-        {messages.map((msg) => (
-          <Message key={msg.id} message={msg} />
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
-
-      <MessageInput onSend={handleSendMessage} />
-    </div>
-  );
+    );
 }
-

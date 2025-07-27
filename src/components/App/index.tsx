@@ -5,17 +5,20 @@ import "./style.css";
 import RegistrationPage from "../../pages/RegistrationPage/index.tsx";
 
 function App() {
-  return (
-    <div className="body">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/chat" element={<MessagePage />} />
-          <Route path="/registration" element={<RegistrationPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    return (
+        <div className="body">
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/chat" element={<MessagePage />} />
+                    <Route
+                        path="/registration"
+                        element={<RegistrationPage />}
+                    />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;

@@ -18,21 +18,12 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         }
     };
 
-    const consolForStickers = () => {
-        console.log("Выберите стикер");
-    };
-
-    const consolForPaperClip = () => {
-        console.log("Выберите файлы");
-    };
-
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
             <button
                 className="paperclip-button"
                 onClick={(e) => {
                     e.preventDefault();
-                    consolForPaperClip();
                 }}
             >
                 <img
@@ -48,7 +39,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Message"
                     className="message-input"
-                    rows={1}                 
+                    rows={1}
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                             e.preventDefault();
@@ -61,7 +52,6 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                     className="stickers-button"
                     onClick={(e) => {
                         e.preventDefault();
-                        consolForStickers();
                     }}
                 >
                     <img
@@ -77,13 +67,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                 className="send-button"
                 disabled={!message.trim()}
             >
-                <img
-                    src={
-                        message.trim()
-                            ? sendingButton
-                            : microIconIconSrc
-                    }
-                />
+                <img src={message.trim() ? sendingButton : microIconIconSrc} />
             </button>
         </form>
     );
