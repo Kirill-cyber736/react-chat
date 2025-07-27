@@ -30,8 +30,6 @@ export default function MessageInput({ onSend }: MessageInputProps) {
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             handleSubmit(e);
-
-            console.log(e.key)
           }
         }}
       />
