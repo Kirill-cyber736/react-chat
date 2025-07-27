@@ -1,6 +1,6 @@
 import { type ReactElement, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style.css"; // Подключаем стили
+import "./style.css";
 
 const RegistrationPage = (): ReactElement => {
   const [nickName, setNickName] = useState("");
