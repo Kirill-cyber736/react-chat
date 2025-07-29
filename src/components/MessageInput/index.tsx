@@ -1,4 +1,4 @@
-import { type IIconButtonProps } from "../IconButton";
+import IconButton from "../IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
 import { useState } from "react";
@@ -8,15 +8,9 @@ interface MessageInputProps {
     onSend: (message: string) => void;
 }
 
-interface IPaperclipButton extends IIconButtonProps {
-    src: "src/assets/icons/paperclip-icon.svg"
-}
-
 export default function MessageInput({
     onSend
-}: MessageInputProps, {
-    src
-}: IPaperclipButton) {
+}: MessageInputProps) {
     const [message, setMessage] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -31,18 +25,7 @@ export default function MessageInput({
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <button
-                className="paperclip-button"
-                onClick={(e) => {
-                    e.preventDefault();
-                }}
-            >
-                <img
-                    src={src}
-                    className="paperclip-image"
-                ></img>
-            </button>
-
+            <IconButton src="src/assets/icons/paperclip-icon.svg" onClick={() => {}} height="24px"/>
             <div className="input-with-stickers">
                 <textarea
                     autoFocus
@@ -58,21 +41,8 @@ export default function MessageInput({
                         }
                     }}
                 />
-
-                <button
-                    className="stickers-button"
-                    onClick={(e) => {
-                        e.preventDefault();
-                    }}
-                >
-                    <img
-                        src="src/assets/icons/stickers-icon.svg"
-                        alt="stickers"
-                        className="stickers-image"
-                    />
-                </button>
             </div>
-
+            <IconButton src="src/assets/icons/stickers-icon.svg" onClick={() => {}} height="24px"/>
             <button
                 type="submit"
                 className="send-button"

@@ -15,28 +15,6 @@
   z-index: 100;
 }
 
-
-.paperclip-button {
-  background-color: transparent;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.paperclip-image {
-  width: 24px;
-  height: 24px;
-}
-
-.paperclip-button:hover {
-  border-color: white;
-}
-
 .input-with-stickers {
   position: relative;
   flex: 1;
@@ -65,37 +43,15 @@
   color: #636366;
 }
 
-
-.stickers-button {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.stickers-image {
-  width: 24px;
-  height: 24px;
-}
-
-
 .send-button {
   padding: 12px;
-  background-color: #d500c3;
+  background-color: #1c1c1d;
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 40%;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
   width: 48px;
   height: 48px;
@@ -105,12 +61,11 @@
 }
 
 .send-button:hover {
-  background-color: rgba(149, 149, 149, 0.8);
-  color: white;
+  background-color: rgb(49, 49, 49);
 }
 
 .send-button:disabled {
-  background-color: transparent;
+  background-color: #1c1c1d;
   cursor: not-allowed;
 }
 
