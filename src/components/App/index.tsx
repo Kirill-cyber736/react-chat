@@ -3,9 +3,9 @@ import { BrowserRouter as RouterProvider } from "react-router-dom";
 import { type ReactElement } from "react";
 import "./style.css";
 
-const App = (): ReactElement => {
+const Application = (): ReactElement => {
     return (
-        <div className="app-style">
+        <div className="application">
             <RouterProvider>
                 <ApplicationRouter />
             </RouterProvider>
@@ -13,4 +13,4 @@ const App = (): ReactElement => {
     );
 };
 
-export default App;
+export default Application;
