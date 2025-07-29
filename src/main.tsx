@@ -1,4 +1,4 @@
-import App from "./components/App/index.tsx";
+import App from "@components/App";
 import { createRoot } from "react-dom/client";
 import "./main.css";
 

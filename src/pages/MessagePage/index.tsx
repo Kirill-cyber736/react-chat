@@ -1,6 +1,6 @@
-import Message from "../../components/Message/index.tsx";
-import MessageInput from "../../components/MessageInput/index.tsx";
-import type { IMessage } from "../../types/message.tsx";
+import Message from "@components/Message";
+import MessageInput from "@components/MessageInput";
+import type { IMessage } from "../../types/message";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";

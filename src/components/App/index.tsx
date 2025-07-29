@@ -1,6 +1,6 @@
-import HomePage from "../../pages/HomePage/index.tsx";
-import MessagePage from "../../pages/MessagePage/index.tsx";
-import RegistrationPage from "../../pages/RegistrationPage/index.tsx";
+import HomePage from "@pages/HomePage";
+import MessagePage from "@pages/MessagePage";
+import RegistrationPage from "@pages/RegistrationPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./style.css";
 

@@ -1,5 +1,5 @@
-import IntroSlides from "../../components/IntroSlides";
-import WelcomeBlock from "../../components/NavigationButton";
+import IntroSlides from "@components/IntroSlides";
+import WelcomeBlock from "@components/NavigationButton";
 import { type ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
