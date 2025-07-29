@@ -1,24 +1,16 @@
-import HomePage from "@pages/HomePage";
-import MessagePage from "@pages/MessagePage";
-import RegistrationPage from "@pages/RegistrationPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ApplicationRouter from "@router/index";
+import { BrowserRouter as RouterProvider } from "react-router-dom";
+import { type ReactElement } from "react";
 import "./style.css";
 
-function App() {
+const Application = (): ReactElement => {
     return (
-        <div className="body">
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/chat" element={<MessagePage />} />
-                    <Route
-                        path="/registration"
-                        element={<RegistrationPage />}
-                    />
-                </Routes>
-            </BrowserRouter>
+        <div className="application-container">
+            <RouterProvider>
+                <ApplicationRouter />
+            </RouterProvider>
         </div>
     );
-}
+};
 
-export default App;
+export default Application;

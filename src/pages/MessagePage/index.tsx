@@ -104,7 +104,7 @@ export default function MessagePage() {
                     {secondUsername ? secondUsername : "now you're alone"}
                 </div>
                 <img
-                    src="src/assets/icons/user-icon.svg"
+                    src="src/assets/images/user-icon.png"
                     className="user-icon"
                 />
             </header>
