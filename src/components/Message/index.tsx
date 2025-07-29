@@ -1,4 +1,4 @@
-import type { IMessage } from "../../types/message";
+import type { IMessage } from "@app-types/message";
 import "./style.css";
 
 interface MessageProps {
