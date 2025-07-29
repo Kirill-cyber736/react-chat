@@ -1,3 +1,4 @@
+import { type IIconButtonProps } from "../IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
 import { useState } from "react";
@@ -7,7 +8,15 @@ interface MessageInputProps {
     onSend: (message: string) => void;
 }
 
-export default function MessageInput({ onSend }: MessageInputProps) {
+interface IPaperclipButton extends IIconButtonProps {
+    src: "src/assets/icons/paperclip-icon.svg"
+}
+
+export default function MessageInput({
+    onSend
+}: MessageInputProps, {
+    src
+}: IPaperclipButton) {
     const [message, setMessage] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -18,6 +27,8 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         }
     };
 
+
+
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
             <button
@@ -27,7 +38,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                 }}
             >
                 <img
-                    src="src/assets/icons/paperclip-icon.svg"
+                    src={src}
                     className="paperclip-image"
                 ></img>
             </button>
