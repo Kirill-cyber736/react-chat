@@ -5,7 +5,7 @@ import "./style.css";
 
 const Application = (): ReactElement => {
     return (
-        <div className="application">
+        <div className="application-container">
             <RouterProvider>
                 <ApplicationRouter />
             </RouterProvider>
