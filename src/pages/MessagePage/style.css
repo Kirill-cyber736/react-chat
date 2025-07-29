@@ -24,6 +24,7 @@
 
 .chat-header .user-icon {
   margin-left: auto;
+  height: 45px;
 }
 
 .chat-header .second-user-name-title {
