@@ -1,6 +1,6 @@
-import HomePage from "../pages/HomePage"
-import MessagePage from "../pages/MessagePage"
-import RegistrationPage from "../pages/RegistrationPage"
+import HomePage from "@pages/HomePage"
+import MessagePage from "@pages/MessagePage"
+import RegistrationPage from "@pages/RegistrationPage"
 import { type RouteObject } from "react-router-dom"
 
 export interface IRouterPAth {

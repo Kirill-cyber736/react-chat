@@ -22,9 +22,6 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         <form onSubmit={handleSubmit} className="message-input-container">
             <button
                 className="paperclip-button"
-                onClick={(e) => {
-                    e.preventDefault();
-                }}
             >
                 <img
                     src="src/assets/icons/paperclip-icon.svg"
