@@ -1,7 +1,7 @@
 import Message from "@components/Message";
 import MessageInput from "@components/MessageInput";
-import type { IMessage } from "@app-types/message";
 import { useState, useRef, useEffect } from "react";
+import { type IMessage } from "@app-types/message";
 import { Link } from "react-router-dom";
 import "./style.css";
 
