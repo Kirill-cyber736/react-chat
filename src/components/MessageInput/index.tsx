@@ -1,6 +1,7 @@
 import IconButton from "../IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
+import { SRCs } from "../utils/constants";
 import { useState } from "react";
 import "./style.css";
 
@@ -23,7 +24,7 @@ export default function MessageInput({
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <IconButton iconSrc="src/assets/icons/paperclip-icon.svg" onClick={() => {}} height="24px"/>
+            <IconButton iconSrc={SRCs.PAPERCLIP_ICON} onClick={() => {}} height="24px"/>
             <div className="input-container">
                 <textarea
                     autoFocus
@@ -40,7 +41,7 @@ export default function MessageInput({
                     }}
                 />
             </div>
-            <IconButton iconSrc="src/assets/icons/stickers-icon.svg" onClick={() => {}} height="24px"/>
+            <IconButton iconSrc={SRCs.STICKERS_ICON} onClick={() => {}} height="24px"/>
             <button
                 type="submit"
                 className="send-button"
