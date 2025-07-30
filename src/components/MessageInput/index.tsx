@@ -21,12 +21,10 @@ export default function MessageInput({
         }
     };
 
-
-
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <IconButton src="src/assets/icons/paperclip-icon.svg" onClick={() => {}} height="24px"/>
-            <div className="input-with-stickers">
+            <IconButton iconSrc="src/assets/icons/paperclip-icon.svg" onClick={() => {}} height="24px"/>
+            <div className="input-container">
                 <textarea
                     autoFocus
                     value={message}
@@ -42,7 +40,7 @@ export default function MessageInput({
                     }}
                 />
             </div>
-            <IconButton src="src/assets/icons/stickers-icon.svg" onClick={() => {}} height="24px"/>
+            <IconButton iconSrc="src/assets/icons/stickers-icon.svg" onClick={() => {}} height="24px"/>
             <button
                 type="submit"
                 className="send-button"

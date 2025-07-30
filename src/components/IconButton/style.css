@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   height: 45px;
   width: 45px;
   background-color: #1c1c1d;
@@ -14,4 +13,5 @@
 
 .icon-button:hover {
     background-color: rgb(49, 49, 49);
+    cursor: pointer;
 }

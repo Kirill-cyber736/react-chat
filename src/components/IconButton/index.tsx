@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import "./style.css"
 
 export interface IIconButtonProps {
-  src: string;
+  iconSrc: string;
   onClick: () => void;
   height?: string;
 }
@@ -10,13 +10,13 @@ export interface IIconButtonProps {
 const DEFAULT_HEIGHT = "24px";
 
 const IconButton = ({
-  src,
+  iconSrc,
   onClick,
   height = DEFAULT_HEIGHT,
 }: IIconButtonProps): ReactElement => {
   return (
     <button className="icon-button" onClick={onClick}>
-      <img src={src} height={height}/>
+      <img src={iconSrc} height={height}/>
     </button>
   );
 };
