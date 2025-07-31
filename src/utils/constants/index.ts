@@ -1,4 +1,4 @@
-export enum iconIds {
+export enum IconIds {
     PAPERCLIP_ICON = "paperclip-icon",
     STICKERS_ICON = "stickers-icon"
 }
