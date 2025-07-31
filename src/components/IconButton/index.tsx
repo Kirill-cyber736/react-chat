@@ -1,3 +1,4 @@
+import { ICON_SRC_PREFIX, ICON_SRC_SUFFIX, iconIds } from "../../utils/constants";
 import type { ReactElement } from "react";
 import "./style.css"
 
@@ -16,7 +17,7 @@ const IconButton = ({
 }: IIconButtonProps): ReactElement => {
   return (
     <button className="icon-button" onClick={onClick}>
-      <img src={iconSrc} height={height}/>
+      <img src={ICON_SRC_PREFIX + iconSrc + ICON_SRC_SUFFIX} height={height}/>
     </button>
   );
 };
