@@ -19,7 +19,6 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
 
@@ -29,7 +28,8 @@
             "@components/*": ["src/components/*"],
             "@pages/*": ["src/pages/*"],
             "@app-types/*": ["src/types/*"],
-            "@router/*":["src/router/*"]
+            "@router/*":["src/router/*"],
+            "@utils/*": ["src/utils/*"]
         }
     },
     "include": ["src"]

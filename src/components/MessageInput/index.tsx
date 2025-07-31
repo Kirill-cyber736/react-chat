@@ -1,5 +1,7 @@
+import IconButton from "@components/IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
+import { IconIds } from "@utils/constants";
 import { useState } from "react";
 import "./style.css";
 
@@ -7,7 +9,9 @@ interface MessageInputProps {
     onSend: (message: string) => void;
 }
 
-export default function MessageInput({ onSend }: MessageInputProps) {
+export default function MessageInput({
+    onSend
+}: MessageInputProps) {
     const [message, setMessage] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -20,16 +24,8 @@ export default function MessageInput({ onSend }: MessageInputProps) {
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <button
-                className="paperclip-button"
-            >
-                <img
-                    src="src/assets/icons/paperclip-icon.svg"
-                    className="paperclip-image"
-                ></img>
-            </button>
-
-            <div className="input-with-stickers">
+            <IconButton iconSrc={IconIds.PAPERCLIP_ICON} onClick={() => {}} height="24px"/>
+            <div className="input-container">
                 <textarea
                     autoFocus
                     value={message}
@@ -44,21 +40,8 @@ export default function MessageInput({ onSend }: MessageInputProps) {
                         }
                     }}
                 />
-
-                <button
-                    className="stickers-button"
-                    onClick={(e) => {
-                        e.preventDefault();
-                    }}
-                >
-                    <img
-                        src="src/assets/icons/stickers-icon.svg"
-                        alt="stickers"
-                        className="stickers-image"
-                    />
-                </button>
             </div>
-
+            <IconButton iconSrc={IconIds.STICKERS_ICON} onClick={() => {}} height="24px"/>
             <button
                 type="submit"
                 className="send-button"
