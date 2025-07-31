@@ -1,7 +1,7 @@
-import IconButton from "../IconButton";
+import IconButton from "@components/IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
-import { IconIds } from "../../utils/constants";
+import { IconIds } from "@utils/constants";
 import { useState } from "react";
 import "./style.css";
 
