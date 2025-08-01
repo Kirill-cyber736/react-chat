@@ -12,7 +12,7 @@ export default defineConfig({
       "@pages": path.resolve(__dirname,"./src/pages"),
       "@app-types" : path.resolve(__dirname,"./src/types"),
       "@router": path.resolve(__dirname,"./src/router"),
-      "@domain": path.resolve(__dirname, "./src/domain"),
+      "@domains": path.resolve(__dirname, "./src/domains"),
     }
   }
 })
