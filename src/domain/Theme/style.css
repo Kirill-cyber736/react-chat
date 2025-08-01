@@ -12,9 +12,8 @@
     --accent-active-color: #2c3e50;
     --image-background-color: #D9D9D9;
     --additional-text-font-color: #678259;
-    --light-gray: #8E8E93;
+    --secondary-components-color: #8E8E93;
     --text-inactive: #d2d2d2;
-
 
     --dark-background: #202020;
     --chat-header-background: #1c1c1d;
@@ -83,7 +82,7 @@
 }
 
 body {
-    margin:0;
+    margin: 0;
     min-width: 100vw;
     min-height: 100vh;
     display: flex;

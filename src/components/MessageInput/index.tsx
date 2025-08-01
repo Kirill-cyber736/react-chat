@@ -20,9 +20,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <button
-                className="paperclip-button"
-            >
+            <button className="paperclip-button">
                 <img
                     src="src/assets/icons/paperclip-icon.svg"
                     className="paperclip-image"

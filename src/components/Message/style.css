@@ -5,14 +5,14 @@
   font-family: monospace;
   white-space: pre-wrap;
   word-break: break-word;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #ffffff);
 }
 
 .sender {
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 4px;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #ffffff);
 }
 
 .message-text {
@@ -24,21 +24,20 @@
 
 .message-time {
   font-size: 12px;
-  color: var(--light-gray);
+  color: var(--secondary-components-color, #8e8e93);
   text-align: right;
   margin-top: 4px;
 }
 
-
 .message.mine {
-  background: var(--chat-message-me);
+  background: var(--chat-message-me, #313131);
   align-self: flex-end;
-  border-radius: var(--content-radius-primary) var(--content-radius-primary) 0 var(--content-radius-primary);
+  border-radius: var(--content-radius-primary, 18px) var(--content-radius-primary, 18px) 0 var(--content-radius-primary, 18px);
 }
 
 .message.other {
-  background: var(--chat-message-other);
+  background: var(--chat-message-other, #262628);
   align-self: flex-start;
-  border-radius: var(--content-radius-primary) var(--content-radius-primary) var(--content-radius-primary) 0;
-  box-shadow: var(--chat-shadow);
+  border-radius: var(--content-radius-primary, 18px) var(--content-radius-primary, 18px) var(--content-radius-primary, 18px) 0;
+  box-shadow: var(--chat-shadow, 0 2px 5px rgba(0, 0, 0, 0.2));
 }

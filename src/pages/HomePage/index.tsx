@@ -14,12 +14,12 @@ const HomePage = (): ReactElement => {
         }
     }, [navigate]);
 
-  return (
-    <div className="home-page">
-      <IntroSlides />
-      <WelcomeBlock />
-    </div>
-  );
+    return (
+        <div className="home-page">
+            <IntroSlides />
+            <WelcomeBlock />
+        </div>
+    );
 };
 
 export default HomePage;

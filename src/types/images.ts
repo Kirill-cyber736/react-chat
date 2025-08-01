@@ -16,7 +16,7 @@ const introSlidesImagesData = [
         zIndex: 1,
         left: "900px",
         top: "150px",
-    }
-]
+    },
+];
 
 export default introSlidesImagesData;

@@ -11,7 +11,7 @@
   bottom: 0;
   margin: 0;
   padding: 0;
-  background-color: var(--color-text-primary); 
+  background-color: var(--color-text-primary, #ffffff);
 }
 
 .input-field {
@@ -20,7 +20,7 @@
   padding: 10px;
   margin-bottom: 15px;
   font-size: 1rem;
-  background: var(--dark-background)
+  background: var(--dark-background, #202020)
 }
 
 
@@ -28,19 +28,19 @@
   display: inline-block;
   padding: 15px 30px;
   font-size: 18px;
-  background-color: var(--accent-active-color);
-  border-radius: var(--content-radius-secondary);
+  background-color: var(--accent-active-color, #2c3e50);
+  border-radius: var(--content-radius-secondary, 8px);
   text-decoration: none;
   cursor: pointer;
   border: none;
-  box-shadow: var(--chat-shadow);
-  color: var(--color-text-primary);
-  transition: background-color var(--transition-time);
+  box-shadow: var(--chat-shadow, 0 2px 5px rgba(0, 0, 0, 0.2));
+  color: var(--color-text-primary, #ffffff);
+  transition: background-color var(--transition-time, .3s);
 }
 
 .submit-button:hover {
   color: rgba(149, 149, 149, 0.8);
-  background-color: var(--accent-active-color);
+  background-color: var(--accent-active-color, #2c3e50);
 }
 
 .reg-header {
@@ -49,12 +49,12 @@
   left: 0;
   right: 0;
   height: 60px;
-  background-color: var(--accent-active-color);
-  color: var(--color-text-primary);
+  background-color: var(--accent-active-color, #2c3e50);
+  color: var(--color-text-primary, #ffffff);
   display: flex;
   align-items: center;
   padding: 0 20px;
-  box-shadow: var(--chat-shadow);
+  box-shadow: var(--chat-shadow, 0 2px 5px rgba(0, 0, 0, 0.2));
   z-index: 100;
 }
 
@@ -62,5 +62,5 @@
   font-size: 25px;
   flex: 1;
   text-align: center;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #ffffff);
 }
