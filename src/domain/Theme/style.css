@@ -128,3 +128,8 @@ h5 {
     font-size: 16px;
     color: var(--accent-passive-color);
 }
+
+.sf-pro-text-regular {
+    font-family: "SF Pro Text";
+    font-weight: 400;
+}

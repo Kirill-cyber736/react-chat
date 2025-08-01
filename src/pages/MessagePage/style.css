@@ -48,8 +48,7 @@
   align-items: center;
   left: 0px;
   transition: color var(--transition-time, .3s);
-  font-family: 'SF Pro Text';
-  font-weight: 400;
+  font: var(sf-pro-text-regular);
 }
 
 .chat-back-button:hover {

@@ -18,8 +18,7 @@
 .message-text {
   font-size: 16px;
   line-height: 1.4;
-  font-family: 'SF Pro Text';
-  font-weight: 400;
+  font: var(sf-pro-text-regular);
 }
 
 .message-time {
