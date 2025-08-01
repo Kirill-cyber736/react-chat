@@ -1,44 +1,44 @@
 .message {
   max-width: 40ch;
   padding: 12px 16px;
-  border-radius: 18px;
   position: relative;
   font-family: monospace;
   white-space: pre-wrap;
   word-break: break-word;
-  color: #ffffff;
+  color: var(--color-text-primary);
 }
 
 .sender {
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 4px;
-  color: white;
+  color: var(--color-text-primary);
 }
 
 .message-text {
   font-size: 16px;
   line-height: 1.4;
+  font-family: 'SF Pro Text';
+  font-weight: 400;
 }
 
 .message-time {
   font-size: 12px;
-  color: #8E8E93;
+  color: var(--light-gray);
   text-align: right;
   margin-top: 4px;
 }
 
 
 .message.mine {
-  background: #313131;
+  background: var(--chat-message-me);
   align-self: flex-end;
-  border-radius: 18px 18px 0 18px;
-  margin-right: -15px;
+  border-radius: var(--content-radius-primary) var(--content-radius-primary) 0 var(--content-radius-primary);
 }
 
 .message.other {
-  background: #262628;
+  background: var(--chat-message-other);
   align-self: flex-start;
-  border-radius: 18px 18px 18px 0;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: var(--content-radius-primary) var(--content-radius-primary) var(--content-radius-primary) 0;
+  box-shadow: var(--chat-shadow);
 }

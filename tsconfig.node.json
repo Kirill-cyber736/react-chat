@@ -27,7 +27,8 @@
             "@components/*": ["src/components/*"],
             "@pages/*": ["src/pages/*"],
             "@app-types/*": ["src/types/*"],
-            "@router/*" : ["src/router/*"]
+            "@router/*" : ["src/router/*"],
+            "@domain/*": ["src/domain/*"],
         }
     },
     "include": ["vite.config.ts"]

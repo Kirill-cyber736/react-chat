@@ -5,7 +5,7 @@
     left: 250px;
     user-select: none;
     animation: welcomeButtonIntroPulse 5s infinite ease-in-out;
-    transition: transform .35s;
+    transition: transform var(--transition-time);
     transform-origin: center;
     transform: scale(1);
 }
@@ -56,16 +56,18 @@
     display: inline-block;
     padding: 10px 10px;
     font-size: 10px;
-    background-color: white;
-    border-radius: 18px;
+    background-color: var(--primary-fill-color);
+    border-radius: var(--content-radius-primary);
     text-decoration: none;
     cursor: pointer;
     border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--chat-shadow);
     overflow: hidden;
+    color: var(--primary-font-color);
+    transition: all var(--transition-time);
 }
 
 .center-link:hover {
-    color: rgba(149, 149, 149, 0.8);
-    background-color: gray;
+    color: var(--text-inactive);
+    background-color: var(--light-gray);
 }
