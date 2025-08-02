@@ -1,0 +1,31 @@
+.input-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.message-input {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 44px 12px 16px;
+  border: 1px solid #3a3a3c;
+  border-radius: 16.5px;
+  background-color: #060606;
+  resize: none;
+  max-height: 120px;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: white;
+  transition: border-color 0.3s;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.message-input::placeholder {
+  color: #636366;
+}
