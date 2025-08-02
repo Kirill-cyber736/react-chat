@@ -5,7 +5,7 @@ import "./style.css"
 export interface IIconButtonProps {
   iconSrc: string;
   onClick: () => void;
-  height?: string;
+  height: string;
 }
 
 const DEFAULT_HEIGHT = "24px";

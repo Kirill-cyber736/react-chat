@@ -1,8 +1,8 @@
+import type { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import type { JSX } from "react";
 
-export default function WelcomeBlock(): JSX.Element  {
+export default function WelcomeBlock(): ReactElement  {
   return (
     <div>
       <div className="welcome-block">

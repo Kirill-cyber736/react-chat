@@ -1,5 +1,5 @@
-import { type ReactElement, useState } from "react";
 import { useNavigate, type NavigateFunction } from "react-router-dom";
+import { type ReactElement, useState } from "react";
 import "./style.css";
 
 const RegistrationPage = (): ReactElement => {

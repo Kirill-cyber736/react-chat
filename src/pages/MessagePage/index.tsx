@@ -12,10 +12,10 @@ function getRandomId(): string {
     );
 }
 
-interface ServerMessage {
-    typeOfMessage: "init" | "msg";
-    username?: string;
-    text?: string;
+interface IServerMessage {
+    type: "msg";
+    username: string;
+    text: string;
 }
 
 export default function MessagePage() {
@@ -40,7 +40,7 @@ export default function MessagePage() {
         };
 
          socket.onmessage = (event: MessageEvent) => {
-            const data: ServerMessage = JSON.parse(event.data);
+            const data: IServerMessage = JSON.parse(event.data);
 
             console.log("MESSAGE FROM SERVER: ", data);
 
@@ -48,7 +48,7 @@ export default function MessagePage() {
             //     setSecondUser(data.username);
             // }
 
-            if (data.typeOfMessage === "msg" && data.text && data.username) {
+            if (data.type === "msg" && data.text && data.username) {
                 if (
                     !secondUsername &&
                     data.username !== localStorage.getItem("nickName")

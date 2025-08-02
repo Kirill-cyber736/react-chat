@@ -1,18 +1,20 @@
 import IconButton from "@components/IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
+import { useState, type ReactElement } from "react";
 import { IconIds } from "@utils/constants";
-import { useState, type JSX } from "react";
+import { type FormEvent } from "react";
 import "./style.css";
 
-interface MessageInputProps {
+
+interface IMessageInputProps {
     onSend: (message: string) => void;
 }
 
-export default function MessageInput({ onSend }: MessageInputProps): JSX.Element {
+export default function MessageInput({ onSend }: IMessageInputProps): ReactElement {
     const [message, setMessage] = useState<string>("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         if (message.trim()) {
             onSend(message);

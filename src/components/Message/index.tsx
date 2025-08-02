@@ -1,12 +1,12 @@
 import type { IMessage } from "@app-types/message";
+import type { ReactElement } from "react";
 import "./style.css";
-import type { JSX } from "react";
 
-interface MessageProps {
+interface IMessageProps {
     message: IMessage;
 }
 
-export default function Message({ message }: MessageProps): JSX.Element {
+export default function Message({ message }: IMessageProps): ReactElement {
     return (
         <div className={`message ${message.isMessageMine ? "mine" : "other"}`}>
             <div className="message-text">{message.text}</div>
