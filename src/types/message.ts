@@ -1,7 +1,8 @@
 export interface IMessage {
     id: string;
     text: string;
-    time: string;
-    isMine: boolean;
-    sender?: string;
+    timeSended: string;
+    isMessageMine: boolean;
+    whoIsSender?: string;
+    
 }
