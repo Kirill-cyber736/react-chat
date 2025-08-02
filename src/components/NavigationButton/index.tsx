@@ -8,9 +8,6 @@ export default function WelcomeBlock() {
         <Link to="/chat" className="center-link">
           <img
             height={150}
-            style = {{
-              
-            }}
             src="src/assets/icons/logo.svg">
           </img>
         </Link>

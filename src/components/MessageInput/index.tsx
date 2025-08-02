@@ -9,21 +9,24 @@ interface MessageInputProps {
     onSend: (message: string) => void;
 }
 
-export default function MessageInput({
-    onSend
-}: MessageInputProps) {
+const handleSubmit = (
+    e: React.FormEvent,
+    message: string,
+    { onSend }: MessageInputProps, 
+    setMessage: React.Dispatch<React.SetStateAction<string>>
+) => {
+    e.preventDefault();
+    if (message.trim()) {
+        onSend(message);
+        setMessage("");
+    }
+};
+
+export default function MessageInput({ onSend }: MessageInputProps) {
     const [message, setMessage] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (message.trim()) {
-            onSend(message);
-            setMessage("");
-        }
-    };
-
     return (
-        <form onSubmit={handleSubmit} className="message-input-container">
+        <form onSubmit={(e) => handleSubmit(e, message, {onSend}, setMessage)} className="message-input-container">
             <IconButton iconSrc={IconIds.PAPERCLIP_ICON} onClick={() => {}} height="24px"/>
             <div className="input-container">
                 <textarea
@@ -36,7 +39,7 @@ export default function MessageInput({
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                             e.preventDefault();
-                            handleSubmit(e);
+                            handleSubmit(e, message, {onSend}, setMessage);
                         }
                     }}
                 />
