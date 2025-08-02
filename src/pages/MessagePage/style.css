@@ -55,7 +55,6 @@
   flex-direction: column;
   gap: 15px;
   height: calc(100vh - var(--navbar-height, 75px)*2);
-  margin-top: var(--navbar-height, 75px);
   margin-bottom: var(--navbar-height, 75px);
   padding: var(--content-padding, 16px);
   overflow-y: auto;
