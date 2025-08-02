@@ -14,9 +14,13 @@ interface MessageInputProps {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default function MessageInput({
     onSend
 }: MessageInputProps) {
+=======
+export default function MessageInput({ onSend }: MessageInputProps) {
+>>>>>>> 39ddde1328f96a0a069cdaea5bdf8c222c1d7a6d
     const [message, setMessage] = useState("");
 =======
 export default function MessageInput({ onSend }: MessageInputProps): JSX.Element {
@@ -33,14 +37,18 @@ export default function MessageInput({ onSend }: MessageInputProps): JSX.Element
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <IconButton iconSrc={IconIds.PAPERCLIP_ICON} onClick={() => {}} height="24px"/>
+            <IconButton
+                iconSrc={IconIds.PAPERCLIP_ICON}
+                onClick={() => {}}
+                height="24px"
+            />
             <div className="input-container">
                 <textarea
                     autoFocus
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Message"
-                    className="message-input"
+                    className="message-input secondary-text"
                     rows={1}
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
@@ -50,7 +58,11 @@ export default function MessageInput({ onSend }: MessageInputProps): JSX.Element
                     }}
                 />
             </div>
-            <IconButton iconSrc={IconIds.STICKERS_ICON} onClick={() => {}} height="24px"/>
+            <IconButton
+                iconSrc={IconIds.STICKERS_ICON}
+                onClick={() => {}}
+                height="24px"
+            />
             <button
                 type="submit"
                 className="send-button"

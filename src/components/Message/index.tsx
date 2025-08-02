@@ -13,6 +13,7 @@ export default function Message({ message }: IMessageProps): ReactElement {
             <div className="message-time">
                 {message.timeSended} <img src="src/assets/icons/read-icon.svg"></img>{" "}
             </div>
+
         </div>
     );
 }
