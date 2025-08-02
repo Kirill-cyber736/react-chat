@@ -59,7 +59,6 @@
 }
 
 .reg-title {
-  font-size: 25px;
   flex: 1;
   text-align: center;
   color: var(--color-text-primary, #ffffff);

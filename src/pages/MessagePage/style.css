@@ -30,16 +30,12 @@
 .chat-header .second-user-name-title {
   position: absolute;
   left: 45%;
-  font-size: 21px;
   color: var(--color-text-primary, #ffffff);
-  font-family: 'SF Pro Text';
-  font-weight: 500;
 }
 
 .chat-back-button {
   color: var(--color-text-primary, #ffffff);
   text-decoration: none;
-  font-size: 18px;
   line-height: 1;
   padding: 10px 0;
   margin-right: 20px;
@@ -48,7 +44,6 @@
   align-items: center;
   left: 0px;
   transition: color var(--transition-time, .3s);
-  font: var(sf-pro-text-regular);
 }
 
 .chat-back-button:hover {

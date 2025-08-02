@@ -13,7 +13,7 @@ export default function WelcomeBlock() {
                     ></img>
                 </Link>
             </div>
-            <span className="text-style">Telegram 2</span>
+            <span className="text-style headline">Telegram 2</span>
         </div>
     );
 }

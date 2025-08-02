@@ -106,33 +106,43 @@ h5 {
     color: var(--primary-font-color);
 }
 
-.sf-pro-text-regular {
+
+.headline {
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.33px;
+}
+
+.user-name-title {
+    font-family: "SF Pro Text";
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.4px;
+}
+
+.back-button-and-messages {
     font-family: "SF Pro Text";
     font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.4px;
 }
 
-.common-text {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: var(--primary-font-color);
-}
-
-.primary-text {
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 40px;
-    color: var(--accent-active-color);
-}
-
-.control-text {
+.times {
+    font-family: "SF Pro Text";
     font-weight: 400;
-    font-size: 18px;
-    color: var(--primary-font-color);
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: 0px;
 }
 
-.control-text-passive {
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--accent-passive-color);
+.titles {
+    font-family: "SF Pro Text";
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.4px;
 }
