@@ -97,10 +97,10 @@ export default function MessagePage() {
     return (
         <div className="chat-page">
             <header className="chat-header">
-                <Link to="/" className="chat-back-button back-button-and-messages">
+                <Link to="/" className="chat-back-button back-button-and-messages-text">
                     ← Chats
                 </Link>
-                <div className="second-user-name-title user-name-title">
+                <div className="second-user-name-title user-name-title-text">
                     {secondUsername ? secondUsername : "now you're alone"}
                 </div>
                 <img
@@ -109,7 +109,7 @@ export default function MessagePage() {
                 />
             </header>
 
-            <div className="messages-container back-button-and-messages">
+            <div className="messages-container back-button-and-messages-text">
                 {messages.map((msg) => (
                     <Message key={msg.id} message={msg} />
                 ))}

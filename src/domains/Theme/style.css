@@ -107,7 +107,7 @@ h5 {
 }
 
 
-.headline {
+.headline-text {
     font-family: "Inter";
     font-weight: 700;
     font-size: 48px;
@@ -115,7 +115,7 @@ h5 {
     letter-spacing: -0.33px;
 }
 
-.user-name-title {
+.user-name-title-text {
     font-family: "SF Pro Text";
     font-weight: 500;
     font-size: 17px;
@@ -123,7 +123,7 @@ h5 {
     letter-spacing: -0.4px;
 }
 
-.back-button-and-messages {
+.back-button-and-messages-text {
     font-family: "SF Pro Text";
     font-weight: 400;
     font-size: 17px;
@@ -131,7 +131,7 @@ h5 {
     letter-spacing: -0.4px;
 }
 
-.times {
+.times-text {
     font-family: "SF Pro Text";
     font-weight: 400;
     font-size: 11px;
@@ -139,7 +139,7 @@ h5 {
     letter-spacing: 0px;
 }
 
-.titles {
+.titles-text {
     font-family: "SF Pro Text";
     font-weight: 600;
     font-size: 17px;

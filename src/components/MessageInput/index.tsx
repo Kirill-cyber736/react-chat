@@ -31,7 +31,7 @@ export default function MessageInput({
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Message"
-                    className="message-input back-button-and-messages"
+                    className="message-input back-button-and-messages-text"
                     rows={1}
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
