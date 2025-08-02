@@ -13,6 +13,7 @@ export default defineConfig({
       "@app-types": path.resolve(__dirname, "./src/types"),
       "@router": path.resolve(__dirname, "./src/router"),
       "@utils": path.resolve(__dirname, "./src/utils"),
+      "@hooks": path.resolve(__dirname, "./src/hooks"),
     }
   }
 })
