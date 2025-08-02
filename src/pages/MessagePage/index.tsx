@@ -1,5 +1,5 @@
 import Message from "@components/Message";
-import MessageInput from "@components/ChatFooter";
+import ChatFooter from "@components/ChatFooter";
 import { useState, useRef, useEffect } from "react";
 import { type IMessage } from "@app-types/message";
 import { Link } from "react-router-dom";
@@ -116,7 +116,7 @@ export default function MessagePage() {
                 <div ref={messagesEndRef} />
             </div>
 
-            <MessageInput onSend={handleSendMessage} />
+            <ChatFooter onSend={handleSendMessage} />
         </div>
     );
 }
