@@ -29,6 +29,7 @@
             "@app-types/*": ["src/types/*"],
             "@router/*" : ["src/router/*"],
             "@domains/*": ["src/domains/*"],
+            "@utils/*" : ["src/utils/*"]
         }
     },
     "include": ["vite.config.ts"]
