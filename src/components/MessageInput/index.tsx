@@ -1,33 +1,20 @@
 import IconButton from "@components/IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
-<<<<<<< HEAD
+import { useState, type ReactElement } from "react";
 import { IconIds } from "@utils/constants";
-import { useState } from "react";
-=======
-import { useState, type JSX } from "react";
->>>>>>> 59044b1 (fix: Renamed unclear variables to more understandable ones, explicitly specified function types where needed)
+import { type FormEvent } from "react";
 import "./style.css";
 
-interface MessageInputProps {
+
+interface IMessageInputProps {
     onSend: (message: string) => void;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-export default function MessageInput({
-    onSend
-}: MessageInputProps) {
-=======
-export default function MessageInput({ onSend }: MessageInputProps) {
->>>>>>> 39ddde1328f96a0a069cdaea5bdf8c222c1d7a6d
-    const [message, setMessage] = useState("");
-=======
-export default function MessageInput({ onSend }: MessageInputProps): JSX.Element {
+export default function MessageInput({ onSend }: IMessageInputProps): ReactElement {
     const [message, setMessage] = useState<string>("");
->>>>>>> 59044b1 (fix: Renamed unclear variables to more understandable ones, explicitly specified function types where needed)
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         if (message.trim()) {
             onSend(message);
