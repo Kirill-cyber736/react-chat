@@ -1,56 +1,61 @@
-import { type IMessage } from "@app-types/message";
+import { useEffect, useState } from 'react';
+import { type IMessage } from '@app-types/message';
 
 function getRandomId() {
-    return (
-        Date.now().toString(36) +
-        Math.random().toString(36).substring(2).toString()
-    );
+    return Date.now().toString(36) + Math.random().toString(36).substring(2).toString();
 }
 
 export const useWebSocket = (
     username: string | null,
-    secondUsername: string | null,
-    setSecondUsername: React.Dispatch<React.SetStateAction<string | null>>,
-    setMessages: React.Dispatch<React.SetStateAction<IMessage[]>>,
-    socket: WebSocket
+    handleNewMessage: (msg: IMessage) => void,
+    setSecondUsername: (username: string) => void
 ) => {
-    // const socket = new WebSocket("ws://localhost:3001");
+    const url = "ws://localhost:3001";
+    const [ws, setWs] = useState<WebSocket | null>(null);
 
-    socket.onopen = () => {
-        console.log("Connected to ws");
+    useEffect(() => {
+        if (!username) return;
 
-        socket.send(
-            JSON.stringify({ type: "init", username, id: getRandomId() })
-        );
-    };
+        const socket = new WebSocket(url);
 
-    socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
+        socket.onopen = () => {
+            console.log("Connected to ws");
+            socket.send(JSON.stringify({ type: "init", username, id: getRandomId() }));
+        };
 
-        console.log("MESSAGE FROM SERVER: ", data);
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log("MESSAGE FROM SERVER: ", data);
 
-        if (data.type === "msg") {
-            if (
-                !secondUsername &&
-                data.username !== localStorage.getItem("nickName")
-            ) {
-                setSecondUsername(data.username);
+            if (data.type === "msg") {
+                if (!data.isMine && data.username !== username) {
+                    setSecondUsername(data.username);
+                }
 
-                console.log("SECOND USERNAME CHANGED: ", data.username);
+                const newMessage: IMessage = {
+                    id: Date.now().toString(),
+                    text: data.text,
+                    time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                    isMine: data.username === username,
+                    sender: data.username,
+                };
+
+                handleNewMessage(newMessage);
             }
-            const newMessage: IMessage = {
-                id: Date.now().toString(),
-                text: data.text,
-                time: new Date().toLocaleTimeString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                }),
-                isMine: data.username === localStorage.getItem("nickName"),
-                sender: data.username,
-            };
-            if (localStorage.getItem("nickName") !== data.username) {
-                setMessages((prev) => [...prev, newMessage]);
-            }
+        };
+
+        setWs(socket);
+
+        return () => {
+            socket.close();
+        };
+    }, [ username]);
+
+    const sendMessage = (text: string) => {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ type: "msg", text, sender: username }));
         }
     };
-}
+
+    return { sendMessage };
+};
