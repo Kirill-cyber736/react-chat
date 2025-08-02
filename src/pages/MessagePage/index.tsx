@@ -5,11 +5,17 @@ import { type IMessage } from "@app-types/message";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-function getRandomId() {
+function getRandomId(): string {
     return (
         Date.now().toString(36) +
         Math.random().toString(36).substring(2).toString()
     );
+}
+
+interface IServerMessage {
+    type: "msg";
+    username: string;
+    text: string;
 }
 
 export default function MessagePage() {
@@ -20,7 +26,7 @@ export default function MessagePage() {
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    const username = localStorage.getItem("nickName");
+    const username: string | null = localStorage.getItem("nickName");
 
     useEffect(() => {
         const socket = new WebSocket("ws://localhost:3001");
@@ -29,12 +35,12 @@ export default function MessagePage() {
             console.log("Connected to ws");
 
             socket.send(
-                JSON.stringify({ type: "init", username, id: getRandomId() })
+                JSON.stringify({ type: "msg", username, id: getRandomId() })
             );
         };
 
-        socket.onmessage = (event) => {
-            const data = JSON.parse(event.data);
+         socket.onmessage = (event: MessageEvent) => {
+            const data: IServerMessage = JSON.parse(event.data);
 
             console.log("MESSAGE FROM SERVER: ", data);
 
@@ -42,7 +48,7 @@ export default function MessagePage() {
             //     setSecondUser(data.username);
             // }
 
-            if (data.type === "msg") {
+            if (data.type === "msg" && data.text && data.username) {
                 if (
                     !secondUsername &&
                     data.username !== localStorage.getItem("nickName")
@@ -54,12 +60,12 @@ export default function MessagePage() {
                 const newMessage: IMessage = {
                     id: Date.now().toString(),
                     text: data.text,
-                    time: new Date().toLocaleTimeString([], {
+                    timeSended: new Date().toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
                     }),
-                    isMine: data.username === localStorage.getItem("nickName"),
-                    sender: data.username,
+                    isMessageMine: data.username === localStorage.getItem("nickName"),
+                    whoIsSender: data.username,
                 };
                 if (localStorage.getItem("nickName") !== data.username) {
                     setMessages((prev) => [...prev, newMessage]);
@@ -76,11 +82,11 @@ export default function MessagePage() {
         const newMessage: IMessage = {
             id: Date.now().toString(),
             text,
-            time: new Date().toLocaleTimeString([], {
+            timeSended: new Date().toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
             }),
-            isMine: true,
+            isMessageMine: true,
         };
 
         setMessages([...messages, newMessage]);

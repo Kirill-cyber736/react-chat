@@ -1,16 +1,31 @@
 import IconButton from "@components/IconButton";
 import sendingButton from "@assets/icons/sending-button-icon.svg";
 import microIconIconSrc from "@assets/icons/micro-icon-disabled.svg";
+<<<<<<< HEAD
 import { IconIds } from "@utils/constants";
 import { useState } from "react";
+=======
+import { useState, type JSX } from "react";
+>>>>>>> 59044b1 (fix: Renamed unclear variables to more understandable ones, explicitly specified function types where needed)
 import "./style.css";
 
 interface MessageInputProps {
     onSend: (message: string) => void;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+export default function MessageInput({
+    onSend
+}: MessageInputProps) {
+=======
 export default function MessageInput({ onSend }: MessageInputProps) {
+>>>>>>> 39ddde1328f96a0a069cdaea5bdf8c222c1d7a6d
     const [message, setMessage] = useState("");
+=======
+export default function MessageInput({ onSend }: MessageInputProps): JSX.Element {
+    const [message, setMessage] = useState<string>("");
+>>>>>>> 59044b1 (fix: Renamed unclear variables to more understandable ones, explicitly specified function types where needed)
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

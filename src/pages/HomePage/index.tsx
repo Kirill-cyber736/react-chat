@@ -1,14 +1,14 @@
 import IntroSlides from "@components/IntroSlides";
-import WelcomeBlock from "@components/WelcomeBlock";
+import WelcomeBlock from "@components/NavigationButton";
+import { useNavigate, type NavigateFunction } from "react-router-dom";
 import { type ReactElement, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const HomePage = (): ReactElement => {
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
 
     useEffect(() => {
-        const nickName = localStorage.getItem("nickName");
+        const nickName: string | null = localStorage.getItem("nickName");
         if (!nickName) {
             navigate("/registration");
         }
