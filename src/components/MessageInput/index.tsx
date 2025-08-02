@@ -9,9 +9,7 @@ interface MessageInputProps {
     onSend: (message: string) => void;
 }
 
-export default function MessageInput({
-    onSend
-}: MessageInputProps) {
+export default function MessageInput({ onSend }: MessageInputProps) {
     const [message, setMessage] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -24,14 +22,18 @@ export default function MessageInput({
 
     return (
         <form onSubmit={handleSubmit} className="message-input-container">
-            <IconButton iconSrc={IconIds.PAPERCLIP_ICON} onClick={() => {}} height="24px"/>
+            <IconButton
+                iconSrc={IconIds.PAPERCLIP_ICON}
+                onClick={() => {}}
+                height="24px"
+            />
             <div className="input-container">
                 <textarea
                     autoFocus
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Message"
-                    className="message-input"
+                    className="message-input secondary-text"
                     rows={1}
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
@@ -41,7 +43,11 @@ export default function MessageInput({
                     }}
                 />
             </div>
-            <IconButton iconSrc={IconIds.STICKERS_ICON} onClick={() => {}} height="24px"/>
+            <IconButton
+                iconSrc={IconIds.STICKERS_ICON}
+                onClick={() => {}}
+                height="24px"
+            />
             <button
                 type="submit"
                 className="send-button"
