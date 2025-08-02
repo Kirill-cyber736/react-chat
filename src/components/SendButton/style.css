@@ -1,10 +1,8 @@
 .send-button {
   padding: 12px;
-  background-color: #1c1c1d;
   color: white;
   border: none;
   border-radius: 40%;
-  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
   flex-shrink: 0;
@@ -16,10 +14,10 @@
 }
 
 .send-button:disabled {
-  background-color: #1c1c1d;
+  background-color: var(--chat-header-background);
   cursor: not-allowed;
 }
 
 .send-button.active {
-    background-color: pink;
+    background-color: var(--send-button-color);
 }

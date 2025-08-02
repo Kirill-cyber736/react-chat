@@ -26,20 +26,17 @@ export default function ChatFooter({ onSend }: ChatFooterProps) {
                 onClick={() => {}}
                 height="24px"
             />
-            <MessageInput 
-                message= {message}
-                setMessage = {setMessage}
-                onSubmit = {handleSubmit}
+            <MessageInput
+                message={message}
+                setMessage={setMessage}
+                onSubmit={handleSubmit}
             />
             <IconButton
                 iconSrc={IconIds.STICKERS_ICON}
                 onClick={() => {}}
                 height="24px"
             />
-            <SendButton 
-                disabled= {!message.trim()}
-                onClick={handleSubmit}
-            />
+            <SendButton disabled={!message.trim()} onClick={handleSubmit} />
         </div>
     );
 }

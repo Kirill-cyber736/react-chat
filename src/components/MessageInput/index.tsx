@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import "./style.css"
+import "./style.css";
 
 export interface IMessageInputProps {
     message: string;
@@ -7,8 +7,12 @@ export interface IMessageInputProps {
     onSubmit: () => void;
 }
 
-const MessageInput = ({message,setMessage,onSubmit}: IMessageInputProps): ReactElement => {
-    return(
+const MessageInput = ({
+    message,
+    setMessage,
+    onSubmit,
+}: IMessageInputProps): ReactElement => {
+    return (
         <div className="input-container">
             <textarea
                 autoFocus
@@ -25,7 +29,7 @@ const MessageInput = ({message,setMessage,onSubmit}: IMessageInputProps): ReactE
                 }}
             />
         </div>
-    )
-}
+    );
+};
 
 export default MessageInput;

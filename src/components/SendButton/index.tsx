@@ -22,4 +22,3 @@ const SendButton = ({ disabled, onClick }: ISendButtonProps): ReactElement => {
 };
 
 export default SendButton;
-
